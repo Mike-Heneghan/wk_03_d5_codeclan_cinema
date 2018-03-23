@@ -67,4 +67,19 @@ class Film
     result = SqlRunner.run(sql,values)
   end
 
+  def customers_who_booked_film()
+    sql = "
+    SELECT customers.*
+    FROM customers
+    INNER JOIN tickets
+    ON tickets.customer_id = customers.id
+    WHERE film_id = $1;
+    "
+
+    values = [@id]
+
+    result = SqlRunner.run(sql,values)
+    return Customer.get_customer_objects(result)
+  end
+
 end

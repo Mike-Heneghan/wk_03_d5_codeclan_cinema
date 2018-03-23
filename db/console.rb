@@ -32,5 +32,8 @@ puts ""
 p Film.all()
 puts ""
 
+p film1.customers_who_booked_film()
+puts ""
+
 p Ticket.all()
 puts ""

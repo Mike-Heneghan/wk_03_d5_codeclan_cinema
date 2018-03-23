@@ -26,6 +26,9 @@ ticket1.save()
 p Customer.all()
 puts ""
 
+p customer1.films_customer_has_booked()
+puts ""
+
 p Film.all()
 puts ""
 

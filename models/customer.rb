@@ -83,4 +83,25 @@ class Customer
   end
   # Show which films a customer has booked to see
 
+  def number_of_tickets()
+    return films_customer_has_booked.length
+  end
+  # Check how many customers are going to watch a certain film
+
+  def self.customer_buys_ticket(customer)
+    sql = "
+    SELECT films.price
+    FROM films
+    INNER JOIN tickets
+    ON films.id = tickets.film_id
+    WHERE customer_id = $1"
+
+    values = [customer.id]
+
+    result = SqlRunner.run(sql, values)[0]['price'].to_i
+    update_funds = customer.funds.to_i - result
+    customer.funds = update_funds
+    customer.update()
+  end
+
 end

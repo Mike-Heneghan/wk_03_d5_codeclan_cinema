@@ -82,4 +82,9 @@ class Film
     return Customer.get_customer_objects(result)
   end
 
+  def number_of_customers()
+    return customers_who_booked_film.length
+  end
+  # Check how many customers are going to watch a certain film
+
 end

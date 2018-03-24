@@ -27,6 +27,56 @@ class Ticket
 
   end
 
+  # def customer_buys_ticket()
+  #   sql = "
+  #   UPDATE customers
+	#     INNER JOIN tickets ON (tickets.customer_id = customers.id)
+	#     INNER JOIN films ON (tickets.film_id = films.id)
+	#     SET customers.funds = (customers.funds - films.price)
+  #   WHERE (tickets.film_id, tickets.customer_id)= ($1, $2);
+  #   "
+  #   values = [@film_id, @customer_id]
+  #
+  #   SqlRunner.run(sql, values)
+  #
+  # end
+
+  # def customer_buys_ticket
+  #   sql = "
+  #   UPDATE customers
+	#     INNER JOIN tickets ON (tickets.customer_id = customers.id)
+	#     INNER JOIN films ON (tickets.film_id = films.id)
+	#   SET customers.funds = (customers.funds - films.price)
+	#   WHERE (film_id , customer_id) = ($1, $2);
+  #   "
+  #   values = [@film_id, @customer_id]
+  #
+  #   SqlRunner.run(sql, values)
+  #
+  # end
+
+  # def customer_buys_ticket
+  #   sql = "
+  #   UPDATE customers
+  #     INNER JOIN tickets
+  #     ON  tickets.customer_id = customers.id
+  #     INNER JOIN films
+  #     ON tickets.film_id = films.id
+  #   SET customer.funds = customers.funds - films.price
+  #   WHERE (film_id, customer_id) = ($1, $2)
+  #   "
+  #   values = [@film_id, @customer_id]
+  #
+  #   SqlRunner.run(sql, values)
+  # end
+  # def customer_buys_ticket()
+  #   if customer.funds >= film.price
+  #     customer.funds -= film.price
+  #     customer.update()
+  #   end
+  #       # Reduces the funds
+  # end
+
   def self.get_ticket_objects(result)
     answer = result.map { |ticket_hash| Ticket.new(ticket_hash)}
     return answer

@@ -37,3 +37,16 @@ puts ""
 
 p Ticket.all()
 puts ""
+
+p film1.number_of_customers()
+puts ""
+
+p customer1.number_of_tickets()
+puts ""
+
+# p ticket1.customer_buys_ticket()
+# # p Customer.all()
+Customer.customer_buys_ticket(customer1)
+
+p Customer.all()
+puts ""
